@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<%
+var json = require("customer.json");
+%>
+</head>
+<body>
+ <h1>Employee Details</h1>
+ <%
+ include ("new_customer.jag");
+ %>
+ <h2>List all Customers</h2>
+ <table "customerTable" border="2">
+  <tr>
+   <th>Company Name</th>
+   <th>Contact Name</th>
+   <th>Address</th>
+  </tr>
+  <%
+  for (var i in json.customer){
+%>
+  <tr>
+   <td><%=json.customer[i].CompanyName%></td>
+   <td><%=json.customer[i].ContactName%></td>
+   <td><%=json.customer[i].Address%></td>
+  </tr>
+  <%
+ }
+ 
+ %>
+ 
+ </table>
+</body>
+ 
+</html>

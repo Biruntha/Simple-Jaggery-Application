@@ -1,0 +1,46 @@
+<h2>Add new Customer</h2>
+<form method="post">
+ <table>
+  <tr>
+   <td align="right">Company Name:</td>
+   <td align="left"><input type="text" name="CompanyName" /></td>
+  </tr>
+  <tr>
+   <td align="right">Contact Name:</td>
+   <td align="left"><input type="text" name="ContactName" /></td>
+  </tr>
+  <tr>
+   <td align="right">Address:</td>
+   <td align="left"><input type="text" name="Address" /></td>
+  </tr>
+ </table>
+ <br> <input type="submit" value="Add Customer">
+</form>
+ 
+<%
+// if it's post request to add a employee
+if(request.getMethod() == "POST"){
+ var CompanyName = request.getParameter("CompanyName");
+ var ContactName = request.getParameter("ContactName");
+ var Address = request.getParameter("Address");
+ 
+ if(!CompanyName || !ContactName || !Address){
+   response.status = 400;
+   print("<script>alert('Customer details cannot be empty!');</script>");
+  } else {
+   json.customer.push(
+   {
+    "CompanyName":CompanyName, "ContactName":ContactName, "Address": Address
+   }
+   );
+ 
+   var file = new File("customer.json");
+   file.open("w");
+   file.write(json);
+   file.close();
+   response.status = 200;
+  }
+}
+ 
+%>
+<hr />

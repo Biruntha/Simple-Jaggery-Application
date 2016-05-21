@@ -1,0 +1,15 @@
+{
+ "customer": [
+  
+  {
+   "CompanyName": "Great Lakes Food Market",
+   "ContactName": "Howard Snyder",
+   "Address": "2732 Baker Blvd"
+  },
+  {
+   "CompanyName": "Hungry Coyote Import Store",
+   "ContactName": "Yoshi Latimer",
+   "Address": "City Center Plaza 516 Main St"
+  }
+ ]
+}
